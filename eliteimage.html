@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segment Design</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+            header img {
+                height: 80px;
+                margin-right: 90px;
+            }
+
+            header nav ul {
+                display: flex;
+                list-style: none;
+                gap: 2rem;
+                margin: 0;
+                padding: 0;
+            }
+
+                header nav ul li a {
+                    text-decoration: none;
+                    color: #333;
+                    font-weight: bold;
+                }
+
+            header a.get-started {
+                text-decoration: none;
+                background: #00bfa6;
+                color: #fff;
+                padding: 0.5rem 1.5rem;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+        /* Hero Section */
+        section.hero {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+        }
+
+            section.hero h1 {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #000;
+                margin-bottom: 1rem;
+            }
+
+            section.hero a {
+                text-decoration: none;
+                display: inline-block;
+                background: #00bfa6;
+                color: #fff;
+                padding: 1rem 2rem;
+                border-radius: 5px;
+                font-weight: bold;
+                margin-top: 2rem;
+            }
+
+        /* Trusted Customers Section */
+        section.trusted {
+            padding: 3rem 1rem;
+            background: #fff;
+            text-align: center;
+        }
+
+            section.trusted h2 {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #5a4dbb, #9164c1);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+            .faq-section h2 {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+
+        .accordion {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+            .accordion-item button {
+                width: 100%;
+                background: #fff;
+                color: #333;
+                font-size: 1rem;
+                font-weight: bold;
+                padding: 1rem;
+                border: none;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+            }
+
+                .accordion-item button:hover {
+                    background: #f0f0f0;
+                }
+
+            .accordion-item .content {
+                display: none;
+                padding: 1rem;
+                font-size: 0.9rem;
+                color: #555;
+                border-top: 1px solid #ddd;
+            }
+
+        /* Success Stories Section */
+        section.success {
+            padding: 3rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f4f8fc;
+            text-align: center;
+        }
+
+            section.success h2 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #4a3d9e;
+                margin-bottom: 1rem;
+            }
+
+        /* Overlay and Pop-Up */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup {
+            background: #fff;
+            width: 80%;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            background: #fff;
+            border: 2px solid #333;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+            .close-btn:hover {
+                background: #333;
+                color: #fff;
+            }
+    </style>
+    <script>
+        // Function to show the pop-up
+        function showPopup() {
+            document.querySelector('.overlay').style.display = 'flex';
+        }
+
+        // Function to hide the pop-up
+        function hidePopup() {
+            document.querySelector('.overlay').style.display = 'none';
+        }
+
+        // Show the pop-up when the page loads
+        window.onload = showPopup;
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <img src="i.png" alt="Elite Image">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How This Works</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#get-started" class="get-started">Get Started</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>We remove defamatory content.<br><span>You only pay <em>after</em> we perform.</span></h1>
+        <a href="#get-started">Get Started</a>
+    </section>
+
+    <!-- Trusted Customers Section -->
+    <section class="trusted">
+        <h2>Trusted By 100's Of Repeat Customers Every Year...</h2>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>FAQs</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button onclick="toggleAccordion(event)">How do you do this compliantly?</button>
+                <div class="content">
+                    Our in-house team works directly with the Compliance teams...
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button onclick="toggleAccordion(event)">Will the reviews that get removed stay removed?</button>
+                <div class="content">
+                    Our commitment is to deliver tangible results that matter...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success">
+        <h2>Crafting Success Stories in Marketing</h2>
+        <p>At [Your Marketing Agency's Name], we are not just marketers; we are architects of success stories...</p>
+    </section>
+
+    <!-- Pop-Up -->
+    <div class="overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="hidePopup()">&times;</span>
+            <h2>Welcome to Our Website!</h2>
+            <p>We are here to assist you with removing defamatory content effectively and compliantly. Get started today!</p>
+            <button onclick="hidePopup()" style="padding: 0.5rem 1rem; background: #00bfa6; color: #fff; border: none; border-radius: 5px;">Dismiss</button>
+        </div>
+    </div>
+
+</body>
+</html>
