@@ -3,112 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pooja Mishra CV</title>
+  <title>Pooja (Akhya) Mishra CV</title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-      color: #495057;
+      background-color: #f4f6f9;
+      color: #333;
     }
-    .resume-section {
-      background-color: #ffffff;
+
+    .resume-container {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
       border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     }
+
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .header h1 {
+      color: #007bff;
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .header p {
+      font-size: 16px;
+      margin-top: -5px;
+    }
+
+    .resume-section {
+      margin-bottom: 15px;
+    }
+
     .resume-section h2 {
       color: #007bff;
-      margin-bottom: 20px;
-      font-size: 26px;
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 10px;
-    }
-    .resume-section p {
+      border-bottom: 1.5px solid #007bff;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
       font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 15px;
     }
+
+    .resume-section p, .resume-section li {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
     .resume-section ul {
-      margin-bottom: 15px;
-      padding-left: 20px;
+      padding-left: 18px;
+      margin-bottom: 0;
     }
-    .resume-section ul li {
-      font-size: 18px;
-      line-height: 1.6;
+
+    .company {
+      font-weight: bold;
+      color: #003366; /* dark navy for highlight */
     }
-    .btn {
+
+    .location {
+      font-style: italic;
+      color: #555;
+    }
+
+    .btn-download {
       background-color: #007bff;
-      color: #ffffff;
+      color: white;
+      padding: 8px 20px;
       border: none;
-      padding: 10px 20px;
       border-radius: 5px;
-      font-size: 18px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      font-size: 14px;
     }
-    .btn:hover {
+
+    .btn-download:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="resume-section">
-          <h2>Personal Information</h2>
-          <p><strong>Name:</strong> Pooja Mishra</p>
-          <p><strong>Email:</strong> akhyamishra1979@gmail.com</p>
-          <p><strong>Phone:</strong> 7704082187</p>
-          <p><strong>Address:</strong> Jamlamau , Kunda Pratapgarh, India</p>
-        </div>
-        <div class="resume-section">
-            <h2>Education</h2>
-            <p><strong>Pursuing Btech in Computer Science and Engineering</strong></p>
-            <p>A.K.T.U., 2022-2025</p>
-            <p><strong> Diploma in Computer Science and  Engineering from Government Girls  Polytechnic Meja Prayagraj Marks 80%</strong></p>
-            <p>U.P.B.T.E., 2019-2022</p>
-        </div>
-        <div class="resume-section">
-          <h2>Experience</h2>
-          <p><strong>Software Developer</strong></p>
-          <p>Sigma IT Software PVT. LTD. Lucknow, 05-Aug-2022 - Present</p>
-          <p><strong>Responsibilities:</strong></p>
-          <ul>
-              <li>Developed  Softwares , Websites  using Asp.net MVC, Asp.net Core , and Asp.net</li>
-              <li>Web API using Asp.net Core </li>
-              <li>Payment Gateway Integration </li>
-              <li>Collaborated with team members to deliver projects on time.</li>
-          </ul>
-        </div>
-        <div class="resume-section">
-          <h2>Skills</h2>
-          <ul>
-              <li>
-                  <strong>
-                      Programming Languages: C#, Java, JavaScript
-                  </strong>
-              </li>
-            <li><strong>ADO.Net</strong></li>
-              <li><strong>Asp.Net (Webform)</strong></li>
-              <li><strong>Asp.Net MVC</strong></li>
-              <li><strong>Asp.Net</strong></li>
-              <li><strong>Asp.net Core</strong></li>
-              <li><strong>Web API</strong></li>
-              <li><strong>ADO.Net</strong></li>
-              <li><strong>Architecture: MVC</strong></li>  
-              <li><strong>Database : SQL Server</strong></li>
-              <li><strong>Web Development: HTML, CSS, Git, GitHub</strong></li>
 
-          </ul>
-        </div>
-        <div class="text-center">
-          <button class="btn">Download PDF</button>
-        </div>
-      </div>
+<body>
+
+<div class="container">
+  <div class="resume-container" id="cv">
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Pooja (Akhya) Mishra</h1>
+      <p>Software Developer </p>
     </div>
+
+    <!-- Personal Information -->
+    <div class="resume-section">
+      <h2>Personal Information</h2>
+      <p><strong>Email:</strong> akhyamishra1979@gmail.com | <strong>Phone:</strong> +91 7704082187</p>
+      <p><strong>Address:</strong> Jamlamau, Kunda, Pratapgarh, Uttar Pradesh, India</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pooja-akhya-mishra-11281520b/" target="_blank">https://www.linkedin.com/in/pooja-akhya-mishra-11281520b/</a> | 
+         <strong>GitHub:</strong> <a href="https://github.com/poojaakhyamishra" target="_blank">github.com/poojaakhyamishra</a></p>
+    </div>
+
+    <!-- Summary -->
+    <div class="resume-section">
+      <h2>Professional Summary</h2>
+      <p>Result‑oriented .NET Developer with 3+ years of experience designing scalable web applications. Proficient in ASP.NET MVC, Core, SQL Server, and REST APIs. Successfully delivered accounting, CRM, and education management software solutions that improved business efficiency.</p>
+    </div>
+
+    <!-- Education -->
+    <div class="resume-section">
+      <h2>Education</h2>
+      <p><strong>B.Tech in Computer Science & Engineering</strong> – A.K.T.U (2022‑2025)</p>
+      <p><strong>Diploma in Computer Science & Engineering</strong> – Government Girls Polytechnic Meja, Prayagraj (2019‑2022)</p>
+    </div>
+
+    <!-- Experience -->
+    <div class="resume-section">
+      <h2>Experience</h2>
+
+      <p><strong>Software Developer</strong> – <span class="company">Chromachemie Laboratory Pvt. Ltd.</span> <span class="location">(Bengaluru, Jul 2025‑Present)</span></p>
+      <ul>
+        <li>Developed modules using ASP.NET Core & MVC; improved reporting performance by 30%.</li>
+      </ul>
+
+      <p><strong>Software Developer</strong> – <span class="company">7Techies Software Company</span> <span class="location">(Delhi, Dec 2024‑Jun 2025)</span></p>
+      <ul>
+        <li>Built responsive apps, REST APIs, and integrated secure payment systems.</li>
+      </ul>
+
+      <p><strong>.NET Developer</strong> – <span class="company">SigmaIT Software Pvt. Ltd.</span> <span class="location">(Lucknow, Aug 2022‑Sept 2024)</span></p>
+      <ul>
+        <li>Designed enterprise web apps, optimized SQL Server queries, and delivered client dashboards.</li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="resume-section">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> C# (C# 8), JavaScript, jQuery, Java</li>
+        <li><strong>Frameworks & Technologies:</strong> ASP.NET MVC/Core, Web API, RESTful Services</li>
+        <li><strong>Database:</strong> SQL Server (Queries, Procedures, Optimization)</li>
+        <li><strong>Tools:</strong> Visual Studio, Git, GitHub, HTML5, CSS3, Bootstrap</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="resume-section">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Accounting & Billing Software:</strong> Full-featured system with invoices, expense tracking, and reports; reduced manual errors and improved financial accuracy.</li>
+        <li><strong>School & College Management Software:</strong> Automates student records, attendance, exams, and staff management; central dashboard improves productivity.</li>
+        <li><strong>CRM Software:</strong> Manages leads, customer interactions, sales pipelines, and support tickets; improves customer engagement and conversions.</li>
+      </ul>
+    </div>
+
+    <!-- Achievements -->
+    <div class="resume-section">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Delivered 6+ software solutions from concept to deployment with measurable client benefits.</li>
+        <li>Optimized SQL performance and reduced app load time in multiple projects.</li>
+        <li>Praised for clean coding standards and documentation.</li>
+      </ul>
+    </div>
+
   </div>
+
+  <!-- Download Button -->
+  <div class="text-center mt-3 mb-5">
+    <button class="btn-download" onclick="downloadPDF()">Download CV</button>
+  </div>
+</div>
+
+<script>
+  async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'mm', 'a4');
+
+    const cv = document.getElementById('cv');
+    const canvas = await html2canvas(cv, { scale: 2 });
+    const imgData = canvas.toDataURL('image/png');
+
+    const imgProps = doc.getImageProperties(imgData);
+    const pdfWidth = 210;
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    let heightLeft = pdfHeight, position = 0;
+
+    doc.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+    heightLeft -= 297;
+
+    while (heightLeft > 0) {
+      position = heightLeft - pdfHeight;
+      doc.addPage();
+      doc.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+      heightLeft -= 297;
+    }
+    doc.save('Pooja_Akhya_Mishra_CV.pdf');
+  }
+</script>
+
 </body>
 </html>
